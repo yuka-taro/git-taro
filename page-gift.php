@@ -2,7 +2,13 @@
 
 <section class="page-gift">
 
-  <p class="bread-crumbs">HOME > ギフト・贈り物</p>
+<div class="bread-crumbs">
+  <?php
+  if ( function_exists( 'bcn_display' ) ):
+    bcn_display();
+  endif;
+  ?>
+</div>
 
   <div class="page-gift__contents">
     <div class="page-gift__flex-pc">

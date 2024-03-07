@@ -3,7 +3,13 @@
 
 <section class="page-menu">
 
-  <p class="bread-crumbs">HOME > メニュー</p>
+<div class="bread-crumbs">
+  <?php
+  if ( function_exists( 'bcn_display' ) ):
+    bcn_display();
+  endif;
+  ?>
+</div>
 
   <nav class="menu-select">
   <?php

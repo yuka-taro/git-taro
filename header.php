@@ -159,6 +159,7 @@
 
     <div class="header-bg hidden-sp"></div>
   </header>
+
   <?php else: ?>
 
   <header class="page-header">
@@ -183,7 +184,7 @@
         <div class="page__title-border">
           <div class="page__title-border-sub">
             <h2 class="page__title"><?php echo get_main_title(); ?></h2>
-            <p class="page__title-ja">当店のこだわり</p>
+            <p class="page__title-ja"><?php the_subtitle(); ?></p>
           </div>
         </div>
       </div>

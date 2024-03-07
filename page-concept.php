@@ -2,7 +2,13 @@
 
 <section class="page-concept">
 
-<p class="bread-crumbs">HOME > 当店のこだわり</p>
+<div class="bread-crumbs">
+  <?php
+  if ( function_exists( 'bcn_display' ) ):
+    bcn_display();
+  endif;
+  ?>
+</div>
 
 <div class="page-concept__content concept__content1">
   <div class="page-concept__text-box">

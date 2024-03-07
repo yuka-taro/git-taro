@@ -82,3 +82,47 @@ function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number
   $specific_posts = new WP_Query( $args );
   return $specific_posts;
 }
+
+function page_navi() {
+  the_posts_pagination(array(
+    'end_size' => 1,
+    'mid_size' => 1,
+    'prev_next' => true,
+    'prev_text' =>'<',
+    'next_text' =>'>',
+  ));
+}
+
+// 抜粋機能を固定ページで使えるようにする
+add_post_type_support('page', 'excerpt');
+
+// ウィジェット機能有効化
+function theme_widgets_init() {
+  register_sidebar(array(
+    'name' =>'サイドバーウィジェットエリア',
+    'id' => 'sidebar',
+    'description' => 'ニュースページのサイドバー',
+    'before_widget' =>'<div class="page-news-side">',
+    'after_widget' => '</div>',
+    'before_title' =>'<h4 class="news-side__title">',
+    'after_title' => '</h4>',
+  ));
+}
+add_action( 'widgets_init', 'theme_widgets_init');
+
+// 抜粋の設定
+function my_excerpt_length() {
+  return 80;
+}
+add_filter('excerpt_mblength', 'my_excerpt_length');
+
+function my_excerpt_more() {
+  return'...';
+} 
+add_filter('excerpt_more', 'my_excerpt_more');
+
+function get_flexible_excerpt( $number ) {
+  $value = get_the_excerpt();
+  $value = wp_trim_words($value, $number, '...' );
+  return $value;
+}

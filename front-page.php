@@ -349,7 +349,7 @@
         </a>
         <?php
           endwhile;
-           wp_reset_postdata();
+          wp_reset_postdata();
         endif;
        ?>
 
